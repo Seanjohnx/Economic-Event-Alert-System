@@ -73,7 +73,7 @@ def get_today_events():
     # Debug output (can be removed later)
     print(TODAY_EVENTS)
 
-    # return TODAY_EVENTS
+    return TODAY_EVENTS
 
 # Run function (for testing)
 get_today_events()
