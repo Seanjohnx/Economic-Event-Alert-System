@@ -46,8 +46,12 @@ def get_today_events():
         day_without_zero = month_day_parts[1].lstrip('0')
 
         # Rebuild date as "Jan  6"
-        # (two spaces to match strftime("%c") formatting)
-        normalized_date = f"{month_day_parts[0]}  {day_without_zero}"
+        # (two spaces to match strftime("%c") formatting for single digit day)
+        if len(str(day_without_zero)) == 1:
+            normalized_date = f"{month_day_parts[0]}  {day_without_zero}"
+        else:
+            # (one space to match strftime("%c") formatting for double digit day)
+            normalized_date = f"{month_day_parts[0]} {day_without_zero}"
 
         # Debug output (can be removed later)
         # print(normalized_date, current_datetime_str)
